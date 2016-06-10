@@ -6,8 +6,8 @@ import {AutoGrowDirective} from './auto-grow.directive';
   selector:'courses', //attribute
   template:`
     <h2>Courses</h2>
-      {{title}}
-      <input type = "text" autoGrow/>
+      <input type = "text" [value]="title" (input)="title = $event.target.value" autoGrow />
+    <h1>  Preview: </h1> {{ title }}
     <ul>
       <li *ngFor="#course of courses">
         {{ course }}

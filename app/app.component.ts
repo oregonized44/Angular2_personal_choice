@@ -11,13 +11,19 @@ import {AnotherComponent} from './another.component';
         <names></names>
       </div>
       <button
+          (click)="onClick($event)"
           class="btn btn-primary"
           [style.backgroundColor]="isActive ? 'orange' : 'blue'"
-          >Submit</button>
+          [style.borderColor] = "isActive ? 'orange' : 'blue'"
+      >Submit</button>
     `,
 
     directives:[CoursesComponent, AnotherComponent] //specifies any directives or any components we have used in the template
 })                                                  // directives dont have templates!
 export class AppComponent {
+    onClick($event){
+      this.isActive= true;
+    }
+
     isActive= false;
  } //root component
