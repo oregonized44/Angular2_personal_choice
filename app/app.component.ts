@@ -10,7 +10,14 @@ import {AnotherComponent} from './another.component';
         <courses></courses>
         <names></names>
       </div>
+      <button
+          class="btn btn-primary"
+          [style.backgroundColor]="isActive ? 'orange' : 'blue'"
+          >Submit</button>
     `,
+
     directives:[CoursesComponent, AnotherComponent] //specifies any directives or any components we have used in the template
 })                                                  // directives dont have templates!
-export class AppComponent { } //root component
+export class AppComponent {
+    isActive= false;
+ } //root component
