@@ -6,10 +6,9 @@ import {AnotherService} from './another.service';
   template:`
     <h2>Names</h2>
       {{title}}
-      <br>
       <ul>
         <li *ngFor="#name of names">
-          {{ name }}
+          {{name}}
         </li>
       </ul>
   `,

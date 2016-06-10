@@ -29,7 +29,7 @@ System.register(['angular2/core', './another.service'], function(exports_1, cont
                 AnotherComponent = __decorate([
                     core_1.Component({
                         selector: 'names',
-                        template: "\n    <h2>Names</h2>\n      {{title}}\n      <br>\n      <ul>\n        <li *ngFor=\"#name of names\">\n          {{ name }}\n        </li>\n      </ul>\n  ",
+                        template: "\n    <h2>Names</h2>\n      {{title}}\n      <ul>\n        <li *ngFor=\"#name of names\">\n          {{name}}\n        </li>\n      </ul>\n  ",
                         providers: [another_service_1.AnotherService]
                     }), 
                     __metadata('design:paramtypes', [another_service_1.AnotherService])

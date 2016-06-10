@@ -5,11 +5,12 @@ import {AnotherComponent} from './another.component';
 @Component({
     selector: 'my-app',
     template: `
+      <div>
         <h1>Hello Angular</h1>
         <courses></courses>
         <names></names>
-
+      </div>
     `,
-    directives:[CoursesComponent, AnotherComponent]
-})
-export class AppComponent { }
+    directives:[CoursesComponent, AnotherComponent] //specifies any directives or any components we have used in the template
+})                                                  // directives dont have templates!
+export class AppComponent { } //root component
