@@ -8,15 +8,22 @@ import {ButtonComponent} from './button.component'
 @Component({
     selector: 'my-app',
     template: `
-      
+
       <h1>Hello Angular</h1>
       <courses></courses>
       <names></names>
       <help></help>
-      <favorite></favorite>
+      <favorite [is-favorite]="post.isFavorite" (changed)="onFavoriteChange($event)"></favorite>
     `,
 
     directives:[CoursesComponent, AnotherComponent, FavoriteComponent, ButtonComponent] //specifies any directives or any components we have used in the template
 })                                                  // directives dont have templates!
 export class AppComponent {
+  post = {
+      title: "title",
+      isFavorite: true
+  }
+  onFavoriteChange($event){
+    console.log($event);
+  }
  } //root component

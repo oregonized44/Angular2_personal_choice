@@ -1,12 +1,12 @@
-import {Component} from 'angular2/core';
+import {Component, Input, Output, EventEmitter} from 'angular2/core';
 
 @Component({
     selector: "favorite",
     template:`
         <i
           class="glyphicon"
-          [class.glyphicon-star] = "isActive"
-          [class.glyphicon-star-empty] = "!isActive"
+          [class.glyphicon-star] = "isFavorite"
+          [class.glyphicon-star-empty] = "!isFavorite"
           (click) = "onClick()"
         ></i>
     `
@@ -14,10 +14,15 @@ import {Component} from 'angular2/core';
 })
 
 export class FavoriteComponent{
-    isActive = true;
+    @Input('is-favorite') isFavorite = true;
+
+    @Output('changed') change = new EventEmitter(); // used to publish events
+
     onClick(){
-      this.isActive = !this.isActive;
-      console.log("starclick");
+      this.isFavorite = !this.isFavorite;
+      this.change.emit({
+          newValue: this.isFavorite
+      });
     }
 
 }
