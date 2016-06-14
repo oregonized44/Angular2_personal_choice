@@ -2,7 +2,8 @@ import {Component} from 'angular2/core';
 import {CoursesComponent} from './courses.component';
 import {AnotherComponent} from './another.component';
 import {FavoriteComponent} from './favorite.component';
-import {ButtonComponent} from './button.component'
+import {ButtonComponent} from './button.component';
+import {HeartComponent} from './heart.component';
 
 
 @Component({
@@ -14,14 +15,20 @@ import {ButtonComponent} from './button.component'
       <names></names>
       <help></help>
       <favorite [is-favorite]="post.isFavorite" (changed)="onFavoriteChange($event)"></favorite>
+      <heart [like]="tweet.like"[likes]="tweet.likes"></heart>
     `,
 
-    directives:[CoursesComponent, AnotherComponent, FavoriteComponent, ButtonComponent] //specifies any directives or any components we have used in the template
+    directives:[CoursesComponent, AnotherComponent, FavoriteComponent, ButtonComponent, HeartComponent] //specifies any directives or any components we have used in the template
 })                                                  // directives dont have templates!
 export class AppComponent {
   post = {
       title: "title",
       isFavorite: true
+  }
+  tweet = {
+      likes: 10,
+      like: false
+
   }
   onFavoriteChange($event){
     console.log($event);
